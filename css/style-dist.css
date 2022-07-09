@@ -1,0 +1,121 @@
+html { box-sizing: border-box;}
+*,
+*::before,
+*::after { box-sizing: inherit;}
+body {
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  font-family: var(--space-mono);
+  background-color: hsl(265, 80%, 84%);
+  color: hsl(266, 80%, 12%);
+}
+:root {
+  --inconsolata: 'Inconsolata', monospace;
+  --space-mono: 'Space Mono', monospace;
+}
+.header {
+  margin-inline: auto;
+  font-size: 1.5rem;
+}
+.header,
+.cta {
+  text-transform: uppercase;
+  font-family: var(--inconsolata);
+  font-weight: 700;
+}
+.header,
+.main {
+  width: clamp(21.85rem, 92.5vw, 76rem);
+}
+.main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+  grid-template-rows: auto 1fr;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  justify-items: center;
+}
+.main__fig--img {
+  filter: drop-shadow(-.5em -.25em 1em hsl(266, 80%, 12%));
+}
+.main__fig,
+.main__resu {
+  max-width: 36.65rem;
+  -ms-grid-row-align: center;
+      align-self: center;
+}
+.main__resu--ttl {
+  max-width: 15ch;
+  font-size: 3rem;
+  line-height: 1.48;
+  letter-spacing: -1px;
+  text-shadow: 0 .25em .12em hsl(0 0% 0%/ .5);
+}
+.main__resu--desc {
+  margin-bottom: 3.67em;
+  max-width: 26ch;
+  font-size: 1.125rem;
+}
+.cta {
+  display: inline-block;
+  padding: 1.7em 3em;
+  font-size: .875rem;
+  letter-spacing: 1px;
+  color: hsl(265, 80%, 84%);
+  background-color: hsl(266, 80%, 20%);
+  outline: none;
+  border-radius: .5em;
+  box-shadow: 0 .25em 1em hsl(0 0% 0%/ .35);
+}
+.footer {
+  margin-top: 2em;
+  font-size: .72rem;
+  font-size: clamp(.72rem, 3vw, .9rem);
+  text-align: center;
+  letter-spacing: -.5px;
+}
+.footer__lnk {
+  position: relative;
+  font-weight: 700;
+  color: hsl(266, 80%, 20%);
+  outline: none;
+}
+
+@media screen and (min-width: 64rem) {
+  .main {
+    -ms-grid-columns: 50% 1fr;
+    grid-template-columns: 50% 1fr;
+    -ms-grid-rows: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .main > *:nth-child(1) { -ms-grid-row: 1; -ms-grid-column: 1;
+  }
+  .main > *:nth-child(2) { -ms-grid-row: 1; -ms-grid-column: 2;
+  }
+  .footer {
+    margin-top: unset;
+  }
+}
+
+.footer__lnk::after {
+  content: '';
+  position: absolute;
+  width: 30%;
+  height: 2px;
+  bottom: -2px;
+  left: 0; 
+  background-color: hsl(266, 80%, 20%);
+  transition: width .3s ease-in-out;
+}
+.cta:focus-visible,
+.cta:hover {
+  opacity: .85;
+}
+.footer__lnk:focus-visible::after,
+.footer__lnk:hover::after {
+  width: 100%;
+}
